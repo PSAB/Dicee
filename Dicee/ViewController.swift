@@ -29,6 +29,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
+        
+        //choose random number for dice 1 and 2 face. casted into an Int from UInt32
+        randomDiceIndex1 = Int(arc4random_uniform(6))
+        randomDiceIndex2 = Int(arc4random_uniform(6))
+        
+        //print to verify results
+        print("randomDiceIndex1: \(randomDiceIndex1)")
+        print("randomDiceindex2 \(randomDiceIndex2)")
+        
     }
     
 }
