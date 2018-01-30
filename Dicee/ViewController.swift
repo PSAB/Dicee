@@ -21,6 +21,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // If I want to load up anything right when the app is opened, I do it in this method
+        //In this app, I want the dice faces to be randomized right when the app is opened:
+        
+        randomizeDiceFace()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,20 +35,26 @@ class ViewController: UIViewController {
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
         
+        randomizeDiceFace()
+        
+    }
+    
+    func randomizeDiceFace() {
         //choose random number for dice 1 and 2 face. casted into an Int from UInt32
         randomDiceIndex1 = Int(arc4random_uniform(6))
         randomDiceIndex2 = Int(arc4random_uniform(6))
         
         //print to verify results
-        print("randomDiceIndex1: \(randomDiceIndex1)")
-        print("randomDiceindex2 \(randomDiceIndex2)")
+        //        print("randomDiceIndex1: \(randomDiceIndex1)")
+        //        print("randomDiceindex2 \(randomDiceIndex2)")
         
         //change the dice image
         diceImageView1.image = UIImage(named: diceArray[randomDiceIndex1])
         diceImageView2.image = UIImage(named: diceArray[randomDiceIndex2])
-        
-        
-        
+    }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        randomizeDiceFace()
     }
     
 }
