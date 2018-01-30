@@ -38,6 +38,9 @@ class ViewController: UIViewController {
         print("randomDiceIndex1: \(randomDiceIndex1)")
         print("randomDiceindex2 \(randomDiceIndex2)")
         
+        diceImageView1.image = UIImage(named: "dice2")
+        
+        
     }
     
 }
